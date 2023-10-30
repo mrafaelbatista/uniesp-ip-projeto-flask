@@ -10,6 +10,7 @@
     </content>
     <orderEntry type="jdk" jdkName="Python 3.12 (uniesp-ip-projeto-flask)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="bootstrap" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />

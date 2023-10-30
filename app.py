@@ -9,9 +9,16 @@ os.environ['FLASK_DEBUG'] = 'True'
 # Configurando o modo de depuração com base na variável de ambiente
 app.debug = os.environ.get('FLASK_DEBUG') == 'True'
 
+# Teste de Glossário
+glossario = [
+    ['Internet', 'Acessar internet'],
+    ['Java', 'Pior linguagem de Programação'],
+    ['Python', 'Melhor linguagem']
+             ]
+
 @app.route('/')
 def ola():
-    return render_template('index.html')
+    return render_template('index.html', glossario=glossario)
 
 
 @app.route('/sobre-equipe')
