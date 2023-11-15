@@ -21,9 +21,9 @@ def ola():
     return render_template('index.html', glossario=glossario)
 
 
-@app.route('/sobre-equipe')
+@app.route('/Gerenciador_de_Tarefas.html')
 def sobre():
-    return render_template('sobre.html')
+    return render_template('Gerenciador_de_Tarefas.html')
 
 
 if __name__ == "__main__":
