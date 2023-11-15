@@ -1,0 +1,23 @@
+{% extends "modelo.html" %}
+{% block conteudo %}
+      <h1>Olá, mundo!</h1>
+      <p><a href="/sobre-equipe">Próxima Página</a></p>
+
+    <table class="table table-striped table-responsive table-bordered">
+    <thead class="thead-default">
+    <tr>
+        <th>Termo</th>
+        <th>Definição</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for termo in glossario %}
+        <tr>
+            <td>{{ termo[0] }}</td>
+            <td>{{ termo[1] }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+{% endblock %}

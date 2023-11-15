@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', 'sans-serif';
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(132, 119, 179);
+    height: 200px;
+}
+
+.left-side-menu {
+    display: flex;
+    align-items: center;
+}
+
+.left-side-menu #icon{
+    width: 150px;
+}
+
+.left-side-menu #logo {
+    width: 300px;
+    height: 100px;
+}
+
+.right-side-menu {
+    display: flex;
+    justify-content: space-evenly;
+    width: 200px;
+}
+
+.homeclass, .todoclass {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.homeclass:hover, .todoclass:hover {transform: scale(1.2);}
+
+.right-side-menu #home {
+    width: 43px;
+}
+
+.right-side-menu #todo {
+    width: 35px;
+}
