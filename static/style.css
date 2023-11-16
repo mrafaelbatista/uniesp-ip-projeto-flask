@@ -2,14 +2,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', 'sans-serif';
+    font-family: Helvetica;
 }
+
+body {
+    background-color: #EBEBEB;
+  }
 
 header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(132, 119, 179);
+    background-color: rgb(82,253,214);
     height: 200px;
 }
 
@@ -47,4 +51,47 @@ header {
 
 .right-side-menu #todo {
     width: 35px;
+}
+
+main{}
+
+.left-side {
+    height: 1000px;
+    width: 500px;
+    padding-top: 30px;
+    padding-left: 50px;
+
+    font-size: 24px;
+    font-weight: 100;
+}
+
+.left-side h1 {
+    font-family: Bison;
+    padding-bottom: 30px;
+}
+
+.right-side {
+    width: 400px;
+    position: relative;
+    left: 600px;
+    bottom: 970px;
+    border-left: 1px solid black;
+    padding-left: 100px;
+
+    font-size: 24px;
+    font-weight: 100;
+}
+
+.right-side h1 {
+    font-family: Bison;
+    padding-bottom: 30px;
+}
+
+.right-side p {
+    padding-bottom: 30px;
+}
+
+.right-side ul {
+    list-style: none;
+    display: flex;
 }
