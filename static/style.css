@@ -17,6 +17,13 @@ header {
     height: 200px;
 }
 
+.logo {
+    width: 20px;
+
+    position: relative;
+    right: 300px;
+}
+
 .left-side-menu {
     display: flex;
     align-items: center;
@@ -88,10 +95,22 @@ main{}
 }
 
 .right-side p {
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 }
 
-.right-side ul {
+ul {
     list-style: none;
     display: flex;
+}
+
+.bloco1, .bloco2 {
+    padding: 30px 30px 30px 0;
+}
+
+.joyceClass, .pedroClass {
+    padding-bottom: 20px;
+}
+
+#Raphael {
+    margin-top: 28px;
 }
