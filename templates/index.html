@@ -1,23 +1,80 @@
-{% extends "modelo.html" %}
-{% block conteudo %}
-      <h1>Olá, mundo!</h1>
-      <p><a href="/sobre-equipe">Próxima Página</a></p>
+<!DOCTYPE HTML>
+<html lang = "pt-br">
 
-    <table class="table table-striped table-responsive table-bordered">
-    <thead class="thead-default">
-    <tr>
-        <th>Termo</th>
-        <th>Definição</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for termo in glossario %}
-        <tr>
-            <td>{{ termo[0] }}</td>
-            <td>{{ termo[1] }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-    </table>
+<head>
+	<meta name = "viewport" content = "width=device-width">
+	<meta charset = "UTF-8">
+	<link href = "../static/style.css" rel = "stylesheet" type = "text/css">
 
-{% endblock %}
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Kumbh+Sans:wght@400;700&family=Montserrat:wght@100&family=Poppins:wght@300&family=Ribeye&display=swap" rel="stylesheet">
+
+	<title>rascunho</title>
+</head>
+
+<body>
+	<header>
+		<div>
+			<img class = "logo" src = "../static/img/amongus.png">
+		</div>
+		<div class = "left-side-menu">
+			<img ID = "icon" src =  "../static/img/GlossarickIcon.png">
+			<img ID = "logo" src = "../static/img/GlossarickLogo.png">
+		</div>
+
+		<div class = "right-side-menu">
+			<div class = "homeclass">
+				<a href = "index.html"> <img ID = "home" src = "../static/img/home.png"></a>
+			</div>
+			<div class = "todoclass">
+				<a href = "Gerenciador_de_Tarefas.html"> <img ID = "todo" src = "../static/img/todo.png"></a>
+			</div>
+			</nav>
+		</div>
+	</header>
+	
+	<main>
+		<section>
+			<div class = "container">
+				<div class = "left-side">
+					<h1>API:</h1>
+					<p>API é a sigla em inglês para Application Programming Interface, ouinterface de programação de aplicações.
+						As interfaces de programação de aplicativos (APIs) são conjuntos de ferramentas, definições e protocolos
+						para a criação de aplicações de software. APIs conectam soluções e serviços, sem a necessidade de saber
+						como esses elementos foram implementados.</p>
+				</div>
+
+				<div class = "right-side">
+					<h1>Sobre:</h1>
+					<p>Esta página é um trabalho da matéria "Introdução à programação", e foi desenvolvido
+					pelos seguintes membros e suas respectivas funções:
+					</p>
+					<ul>
+						<div class = "bloco1">
+							<img ID = "Joyce" src = "../static/img/Joyce.JPG" width="150px">
+							<li class = "joyceClass">Joyce Seixas - Scrum Master</li>
+
+							<img ID = "Wesley" src = "../static/img/fotodowesley.JPG" width="150px">
+							<li class = "wesleyClass">Wesley Felipe - Git Manager</li>
+						</div>
+
+						<div class = "bloco2">
+							<img ID = "Pedro" src = "../static/img/pedro.JPG" width="150px">
+							<li class = "pedroClass">Pedro Marra - FrontEnd Dev</li>
+
+							<img ID = "Raphael" src = "../static/img/raphael.JPG" width="150px">
+							<li class = "raphaelClass">Raphael Vieira - FullStack Dev</li>
+						</div>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</main>
+	
+	<footer>
+	
+	</footer>
+</body>
+
+</html>
