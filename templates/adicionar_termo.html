@@ -1,0 +1,18 @@
+{% extends "modelo.html" %}
+{% block conteudo %}
+<h1>Adicionar Termo</h1>
+
+<form action="{{ url_for('criar_termo')}}" method="post">
+  <div class="mb-3">
+    <label for="termo" class="form-label">Termo</label>
+    <input  class="form-control" id="termo" name="termo" aria-describedby="emailHelp">
+    <div id="termoHelp" class="form-text">Termo para ser adicionado.</div>
+  </div>
+  <div class="mb-3">
+    <label for="definicao" class="form-label">Definição</label>
+    <textarea class="form-control" id="definicao" name="definicao" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+{% endblock %}

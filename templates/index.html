@@ -1,23 +1,11 @@
 {% extends "modelo.html" %}
 {% block conteudo %}
       <h1>Olá, mundo!</h1>
-      <p><a href="/sobre-equipe">Próxima Página</a></p>
-
-    <table class="table table-striped table-responsive table-bordered">
-    <thead class="thead-default">
-    <tr>
-        <th>Termo</th>
-        <th>Definição</th>
-    </tr>
-    </thead>
-    <tbody>
+      <p><a href="/sobre">Próxima Página</a></p>
     {% for termo in glossario %}
-        <tr>
-            <td>{{ termo[0] }}</td>
-            <td>{{ termo[1] }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-    </table>
+        <h3>{{ termo[0] }}</h3>
+        <p>Mussum Ipsum, cacilds vidis litro abertis.  Manduma pindureta quium dia nois paga. Si num tem leite então bota uma pinga aí cumpadi! Paisis, filhis, espiritis santis. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.
 
+            Atirei o pau no gatis, per gatis num morreus. Pra lá, depois divoltis porris, paradis. A ordem dos tratores não altera o pão duris. Si num tem leite então bota uma pinga aí cumpadi!</p>
+    {% endfor %}
 {% endblock %}
