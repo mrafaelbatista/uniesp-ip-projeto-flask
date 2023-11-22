@@ -17,13 +17,18 @@ glossario = [
              ]
 
 @app.route('/')
-def ola():
-    return render_template('index.html', glossario=glossario)
+def index_beHealthy():
+    return render_template('index_beHealthy.html', glossario=glossario)
 
 
-@app.route('/sobre-equipe')
-def sobre():
-    return render_template('sobre.html')
+@app.route('/cadastro_beHealthy.html')
+def cadastro_beHealthy():
+    return render_template('cadastro_beHealthy.html')
+
+
+@app.route('/login_beHealthy.html')
+def login_beHealthy():
+    return render_template('login_beHealthy.html')
 
 
 if __name__ == "__main__":
