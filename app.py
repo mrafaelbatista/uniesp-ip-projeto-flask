@@ -16,7 +16,7 @@ glossario = [
     ['Python', 'Melhor linguagem']
              ]
 
-@app.route('/index_beHealthy.html')
+@app.route('/')
 def index_beHealthy():
     return render_template('index_beHealthy.html', glossario=glossario)
 
