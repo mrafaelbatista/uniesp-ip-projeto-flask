@@ -17,9 +17,11 @@
       <th scope="row">{{ loop.index }}</th>
       <td>{{ termo[0] }}</td>
       <td>{{ termo[1] }}</td>
-      <td><form method="post" action="{{ url_for('excluir_termo', termo_id=loop.index-1) }}">
-    <button type="submit" class="btn btn-danger">Excluir</button>
-</form></td>
+      <td>
+        <form method="post" action="{{ url_for('excluir_termo', termo_id=loop.index-1) }}">
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        </form>
+      </td>
     </tr>
   {% endfor %}
   </tbody>
