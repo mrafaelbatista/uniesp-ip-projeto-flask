@@ -1,0 +1,42 @@
+#row-refeicoes {
+    background: url(../images/imgRefeicoesIndex2.jpeg);
+    height: 100px;
+    width: 100%;
+
+}
+
+#row-consultar-alimentos {
+    background: url(../images/imgConsultarAlimentosIndex2.jpeg);
+    height: 100px;
+    width: 100%;
+}
+
+#row-refeicoes-saudaveis {
+    background-color: #0e2b0d;
+    height: 100px;
+    width: 100%;
+}
+
+#row-nao-indicados {
+    background-color: #053c0b;
+    height: 100px;
+    width: 100%;
+}
+
+#row-feedback {
+    background-color: #587a33;
+    height: 100px;
+    width: 100%;
+}
+
+.cabecalho-conteiner {
+    padding: 24px;
+    background: linear-gradient(72deg, #edf8f4 1%, #3f935c 99%);
+    border: 1px solid rgb(220, 220, 220);
+}
+
+
+.names-menu-index2 {
+    line-height: 100px;
+    opacity: 1;
+}

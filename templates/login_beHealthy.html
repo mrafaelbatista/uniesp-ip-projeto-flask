@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <!--Estilo custom CSS-->
+    <!-- Estilo custom CSS -->
     <link rel="stylesheet" type="text/css" href="../static/css/styleIndex.css">
     <link rel="stylesheet" type="text/css" href="../static/css/stylecss.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/styleCadastro.css">
+    <link rel="stylesheet" type="text/css"
+      href="../static/css/styleCadastro.css">
     <script src defer></script>
     <!-- BootStrap -->
     <link
@@ -39,26 +40,35 @@
               class="logo_item" />
           </div>
           <div id="input_container">
-            <div id="email_container">
-              <label for="email_label">E-mail:</label>
-              <input type="text" name="email" class="email_input"
-                class="inpt_item" />
-            </div>
-            <div id="password_container">
-              <label for="password">Senha:</label>
-              <input type="password" name="password" class="password_input"
-                class="inpt_item" />
-            </div>
-            <div id="send_email_container">
-              <input type="checkbox" class="btn_item" />
-              <p>Salvar senha</p>
-            </div>
+            <form method="POST" action="/login">
+              <div id="email_container">
+                <label for="email_label">E-mail:</label>
+                <input type="text" name="email" class="email_input"
+                  class="inpt_item" />
+              </div>
+              <div id="password_container">
+                <label for="password">Senha:</label>
+                <input type="password" name="senha" class="password_input"
+                  class="inpt_item" />
+              </div>
+              <div id="send_email_container">
+                <input type="checkbox" class="btn_item" />
+                <p>Salvar senha</p>
+              </div>
+              <div class="send_user_container">
+                <button type="submit" class="button">
+                  <span>Entrar</span>
+                </button>
+              </div>
+            </form>
           </div>
-          <div class="send_user_container">
-            <a href="#" class="button">
-              <span>Entrar</span>
-            </a>
+
+          {% if mensagem_erro %}
+          <div class="alert alert-danger" role="alert">
+            {{ mensagem_erro }}
           </div>
+          {% endif %}
+
         </div>
       </div>
     </main>
