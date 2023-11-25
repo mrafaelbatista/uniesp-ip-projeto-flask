@@ -16,7 +16,7 @@ def index_beHealthy():
     return render_template('index_beHealthy.html')
 
 
-@app.route('/cadastro_beHealthy.html')
+@app.route('/cadastro_beHealthy')
 def cadastro_beHealthy():
     return render_template('cadastro_beHealthy.html')
 
@@ -50,7 +50,7 @@ def processar_cadastro():
         return render_template('cadastro_beHealthy.html', mensagem='Cadastro realizado com sucesso!')
 
 
-@app.route('/login_beHealthy.html')
+@app.route('/login_beHealthy')
 def login_beHealthy():
     return render_template('login_beHealthy.html')
 
@@ -83,9 +83,47 @@ def login():
             return render_template('login_beHealthy.html', mensagem_erro=mensagem_erro)
 
 
-@app.route('/index2_beHealthy.html')
+@app.route('/index2_beHealthy')
 def index2_beHealthy():
     return render_template('index2_beHealthy.html')
+
+
+@app.route('/receitas')
+def receitas():
+    return render_template('receitas.html')
+
+
+@app.route('/form_cadastro_receita')
+def form_cadastro_receita():
+    return render_template('form_cadastro_receita.html')
+
+
+@app.route('//processar_cadastro_receita', methods=['POST'])
+def processar_cadastro_receita():
+    if request.method == 'POST':
+        # Obtém os dados do formulário
+        titulo_receita = request.form.get('titulo_receita')
+        ingredientes_receita = request.form.get('ingredientes_receita')
+
+        # Caminho para o arquivo CSV
+        cadastro_receitas = 'cadastro_receitas.csv'
+
+        # Verifica se o arquivo já existe
+        arquivo_existe = os.path.exists(cadastro_receitas)
+
+        # Abre o arquivo CSV em modo de escrita
+        with open(cadastro_receitas, 'a', newline='') as csvfile:
+            # Cria um objeto de gravação CSV
+            csv_writer = csv.writer(csvfile)
+
+            # Se o arquivo não existir, escreve o cabeçalho
+            if not arquivo_existe:
+                csv_writer.writerow(['titulo_receita', 'ingredientes_receita'])
+
+            # Escreve os dados no arquivo CSV
+            csv_writer.writerow([titulo_receita, ingredientes_receita])
+
+        return render_template('form_cadastro_receita.html', mensagem='Cadastro de receita realizado com sucesso!')
 
 
 if __name__ == "__main__":
