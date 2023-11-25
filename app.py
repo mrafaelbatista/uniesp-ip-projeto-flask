@@ -88,9 +88,28 @@ def index2_beHealthy():
     return render_template('index2_beHealthy.html')
 
 
-@app.route('/receitas')
-def receitas():
-    return render_template('receitas.html')
+@app.route('/receitas', methods=['GET'])
+def listar_receitas():
+    # Caminho para o arquivo CSV
+    cadastro_receitas_lista = 'cadastro_receitas.csv'
+
+    # Verifica se o arquivo existe
+    arquivo_existe_receita = os.path.exists(cadastro_receitas_lista)
+
+    # Se o arquivo não existir ou estiver vazio, retorna uma lista vazia
+    if not arquivo_existe_receita or os.stat(cadastro_receitas_lista).st_size == 0:
+        receitas_lista = []
+    else:
+        # Abre o arquivo CSV em modo de leitura
+        with open(cadastro_receitas_lista, 'r', newline='') as csvfile_lista:
+            # Cria um objeto de leitura CSV
+            csv_reader = csv.reader(csvfile_lista)
+            # Ignora o cabeçalho se existir
+            next(csv_reader, None)
+            # Lê as receitas do arquivo CSV
+            receitas_lista = list(csv_reader)
+
+    return render_template('receitas.html', receitas=receitas_lista)
 
 
 @app.route('/form_cadastro_receita')

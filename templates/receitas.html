@@ -39,6 +39,28 @@
     </nav>
   </header>
 
+  <main>
+    <div class="container">
+      <h1 class="text-center m-4">Lista de Receitas</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Título da Receita</th>
+            <th scope="col">Ingredientes</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for receita in receitas %}
+            <tr>
+              <td><strong>{{ receita[0] }}</strong></td>
+              <td>{{ receita[1] }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </main>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
