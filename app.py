@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for
+import csv
 
 app = Flask(__name__)
 
@@ -9,16 +10,10 @@ os.environ['FLASK_DEBUG'] = 'True'
 # Configurando o modo de depuração com base na variável de ambiente
 app.debug = os.environ.get('FLASK_DEBUG') == 'True'
 
-# Teste de Glossário
-glossario = [
-    ['Internet', 'Acessar internet'],
-    ['Java', 'Pior linguagem de Programação'],
-    ['Python', 'Melhor linguagem']
-             ]
 
 @app.route('/')
 def index_beHealthy():
-    return render_template('index_beHealthy.html', glossario=glossario)
+    return render_template('index_beHealthy.html')
 
 
 @app.route('/cadastro_beHealthy.html')
@@ -30,13 +25,27 @@ def cadastro_beHealthy():
 def processar_cadastro():
     if request.method == 'POST':
         # Obtém os dados do formulário
-        email = request.form.get('email')  # 'email' é o nome do campo no formulário
-        senha = request.form.get('senha')  # 'senha' é o nome do campo no formulário
-        telefone = request.form.get('telefone')  # 'telefone' é o nome do campo no formulário
+        email = request.form.get('email')
+        senha = request.form.get('senha')
+        telefone = request.form.get('telefone')
 
-        # Salva os dados em um arquivo .txt
-        with open('dados_cadastro.txt', 'a') as arquivo:
-            arquivo.write(f'Email: {email}, Senha: {senha}, Telefone: {telefone}\n')
+        # Caminho para o arquivo CSV
+        dados_cadastro = 'dados_cadastro.csv'
+
+        # Verifica se o arquivo já existe
+        arquivo_existe = os.path.exists(dados_cadastro)
+
+        # Abre o arquivo CSV em modo de escrita
+        with open(dados_cadastro, 'a', newline='') as csvfile:
+            # Cria um objeto de gravação CSV
+            csv_writer = csv.writer(csvfile)
+
+            # Se o arquivo não existir, escreve o cabeçalho
+            if not arquivo_existe:
+                csv_writer.writerow(['Email', 'Senha', 'Telefone'])
+
+            # Escreve os dados no arquivo CSV
+            csv_writer.writerow([email, senha, telefone])
 
         return render_template('cadastro_beHealthy.html', mensagem='Cadastro realizado com sucesso!')
 
@@ -47,11 +56,15 @@ def login_beHealthy():
 
 
 def verificar_login(email, senha):
-    with open('dados_cadastro.txt', 'r') as arquivo:
-        for linha in arquivo:
-            dados = linha.strip().split(', ')
-            email_arquivo = dados[0].split(': ')[1]
-            senha_arquivo = dados[1].split(': ')[1]
+    with open('dados_cadastro.csv', 'r', newline='') as arquivo:
+        # Cria um leitor
+        csv_reader = csv.reader(arquivo)
+
+        # Ignora o cabeçalho se existir
+        next(csv_reader, None)
+
+        for linha in csv_reader:
+            email_arquivo, senha_arquivo, _ = linha
             if email == email_arquivo and senha == senha_arquivo:
                 return True
     return False
